@@ -2,6 +2,8 @@ import { QueryClient, HydrationBoundary, dehydrate } from '@tanstack/react-query
 import { fetchNotes } from '@/lib/api/notes';
 import NotesClient from './Notes.client';
 
+export const dynamic = 'force-dynamic';
+
 const PER_PAGE = 12;
 
 export default async function NotesPage() {
