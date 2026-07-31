@@ -10,7 +10,7 @@ import NoteList from '@/components/NoteList/NoteList';
 import ProgressBar from '@/components/ProgressBar/ProgressBar';
 import Modal from '@/components/Modal/Modal';
 import NoteForm from '@/components/NoteForm/NoteForm';
-import { fetchNotes } from '@/lib/api/notes';
+import { fetchNotes } from '@/lib/api';
 import css from './Notes.module.css';
 
 const PER_PAGE = 12;
