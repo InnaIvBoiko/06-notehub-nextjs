@@ -24,6 +24,7 @@ export default function NotesClient() {
         queryKey: ['notes', page, search],
         queryFn: () => fetchNotes({ page, perPage: PER_PAGE, search }),
         placeholderData: keepPreviousData,
+        staleTime: 1000 * 60 * 5,
     });
 
     if (isError) {
@@ -55,7 +56,7 @@ export default function NotesClient() {
                     </div>
                 )}
                 {!isLoading && notes.length === 0 && <p className={css.empty}>No notes found.</p>}
-                {!isLoading && <NoteList notes={notes} />}
+                {!isLoading && notes.length > 0 && <NoteList notes={notes} />}
             </main>
 
             {isFetching && !isLoading && <ProgressBar />}
