@@ -1,18 +1,10 @@
 import Header from '@/components/Header/Header';
 import Footer from '@/components/Footer/Footer';
+import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import 'modern-normalize';
 import './globals.css';
-
-const geistSans = Geist({
-    variable: '--font-geist-sans',
-    subsets: ['latin'],
-});
-
-const geistMono = Geist_Mono({
-    variable: '--font-geist-mono',
-    subsets: ['latin'],
-});
+import css from './Home.module.css';
 
 export const metadata: Metadata = {
     title: 'Note Hub',
@@ -25,11 +17,13 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+        <html lang="en">
             <body>
-                <Header />
-                <main>{children}</main>
-                <Footer />
+                <TanStackProvider>
+                    <Header />
+                    <div className={css.main}>{children}</div>
+                    <Footer />
+                </TanStackProvider>
             </body>
         </html>
     );
