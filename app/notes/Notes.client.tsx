@@ -25,6 +25,7 @@ export default function NotesClient() {
         queryFn: () => fetchNotes({ page, perPage: PER_PAGE, search }),
         placeholderData: keepPreviousData,
         staleTime: 1000 * 60 * 5,
+        refetchOnMount: false,
     });
 
     if (isError) {
