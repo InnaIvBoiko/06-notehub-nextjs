@@ -1,42 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with
-[`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NoteHub
 
-## Getting Started
+A multi-page note-taking app built with Next.js (App Router). Browse, search, create, delete, and view the details of
+your notes, with SSR + CSR powered by TanStack Query.
 
-First, run the development server:
+- **Live demo:** https://06-notehub-nextjs-wheat-seven.vercel.app/
+- **Repository:** https://github.com/InnaIvBoiko/06-notehub-nextjs
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [Next.js](https://nextjs.org) (App Router)
+- [TypeScript](https://www.typescriptlang.org)
+- [TanStack Query](https://tanstack.com/query) (React Query)
+- [Axios](https://axios-http.com)
+- [Formik](https://formik.org) + [Yup](https://github.com/jquense/yup) for note creation
+- CSS Modules
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Routes
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically
-optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route         | Description                                                             |
+| ------------- | ----------------------------------------------------------------------- |
+| `/`           | Home page with general information about the app.                       |
+| `/notes`      | Note list with search and note creation (SSR prefetch + CSR hydration). |
+| `/notes/[id]` | Details of a single note (SSR prefetch + CSR hydration).                |
 
-## Learn More
+## Project structure
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` — routes, layouts, loading/error boundaries.
+- `components/` — shared, route-agnostic UI components, each in its own folder with a `.tsx` and `.module.css` file.
+- `lib/api/` — Axios client and API request modules.
+- `types/` — shared TypeScript types.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Getting started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions
-are welcome!
+1. Install dependencies:
 
-## Deploy on Vercel
+    ```bash
+    npm install
+    ```
 
-The easiest way to deploy your Next.js app is to use the
-[Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme)
-from the creators of Next.js.
+2. Create a `.env` file based on `.env.example` and set your NoteHub API token:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for
-more details.
+    ```bash
+    NEXT_PUBLIC_NOTEHUB_TOKEN=your_token_here
+    ```
+
+3. Run the development server:
+
+    ```bash
+    npm run dev
+    ```
+
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Scripts
+
+- `npm run dev` — start the development server.
+- `npm run build` — build the app for production.
+- `npm run start` — start the production server.
+- `npm run lint` — run ESLint.
+- `npm run format` — format the code with Prettier.
+- `npm run format:check` — check code formatting with Prettier.
