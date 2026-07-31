@@ -4,7 +4,7 @@ import TanStackProvider from '@/components/TanStackProvider/TanStackProvider';
 import type { Metadata } from 'next';
 import 'modern-normalize';
 import './globals.css';
-import css from './Home.module.css';
+import css from './layout.module.css';
 
 export const metadata: Metadata = {
     title: 'Note Hub',
